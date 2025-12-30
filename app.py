@@ -1,15 +1,6 @@
 import streamlit as st
 import pandas as pd
 import pickle
-import os
-import requests
-
-# Download similarity.pkl if it doesn't exist
-if not os.path.exists("similarity.pkl"):
-    url = "https://drive.google.com/uc?export=download&id=1Gs2G-n7X15Hn58emq-d0S-6k67ireZ4a"  # Replace with your Google Drive direct download link
-    r = requests.get(url)
-    with open("similarity.pkl", "wb") as f:
-        f.write(r.content)
 
 # movies_list → because it is the DataFrame
 #
@@ -41,6 +32,7 @@ if st.button('Recommend'):
     recommendations = recommend(selected_movie_name)
     for i in recommendations:
        st.write(i)
+
 
 
 
